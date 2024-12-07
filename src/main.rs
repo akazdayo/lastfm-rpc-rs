@@ -7,6 +7,8 @@ use reqwest::Client;
 type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
 fn main() {
+    dotenv::dotenv().ok();
+
     let client = Client::new();
     let username: &str = &std::env::var("LASTFM_USERNAME").unwrap();
     let apikey: &str = &std::env::var("LASTFM_APIKEY").unwrap();
